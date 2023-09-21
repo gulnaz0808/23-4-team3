@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import Auth0LoginTab from './tabs/Auth0LoginTab';
 import FirebaseLoginTab from './tabs/FirebaseLoginTab';
 import JWTLoginTab from './tabs/JWTLoginTab';
+import LoginPage from '../pages/auth/login/LoginPage';
 
 const useStyles = makeStyles(theme => ({
   root: {

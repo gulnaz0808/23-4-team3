@@ -14,15 +14,14 @@ class Auth extends Component {
     waitAuthCheck: true
   };
 
-  componentDidMount() {
-    return Promise.all([
+  async componentDidMount() {
+    await Promise.all([
       // Comment the lines which you do not use
       this.firebaseCheck(),
-      this.auth0Check(),
+      // this.auth0Check(),
       this.jwtCheck()
-    ]).then(() => {
-      this.setState({ waitAuthCheck: false });
-    });
+    ]);
+    this.setState({ waitAuthCheck: false });
   }
 
   jwtCheck = () =>
