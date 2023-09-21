@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import _ from '@lodash';
+import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -13,6 +14,15 @@ import * as yup from 'yup';
 /**
  * Form Validation Schema
  */
+
+const useStyles = makeStyles(theme => ({
+  auth_input: {
+  width: '100%',
+    
+
+  }
+}));
+
 const schema = yup.object().shape({
   displayName: yup.string().required('You must enter display name'),
   email: yup.string().email('You must enter a valid email').required('You must enter an email address'),
@@ -31,6 +41,8 @@ const defaultValues = {
 };
 
 function FirebaseRegisterTab(props) {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const authRegister = useSelector(({ auth }) => auth.register);
 
@@ -59,14 +71,15 @@ function FirebaseRegisterTab(props) {
 
   return (
     <div className="w-full">
-      <form className="flex flex-col justify-center w-full" onSubmit={handleSubmit(onSubmit)}>
+      <form className="flex flex-col justify-center w-full " onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="displayName"
           control={control}
           render={({ field }) => (
             <TextField
               {...field}
-              className="mb-16"
+              className={`${classes.auth_inputs} mb-16`}
+              width="150px"
               type="text"
               label="Display name"
               error={!!errors.displayName}
@@ -92,7 +105,7 @@ function FirebaseRegisterTab(props) {
           render={({ field }) => (
             <TextField
               {...field}
-              className="mb-16"
+              className={`${classes.auth_inputs} mb-16`}
               type="text"
               error={!!errors.email}
               helperText={errors?.email?.message}
@@ -118,7 +131,7 @@ function FirebaseRegisterTab(props) {
           render={({ field }) => (
             <TextField
               {...field}
-              className="mb-16"
+              className={`${classes.auth_inputs} mb-16`}
               type="password"
               label="Password"
               error={!!errors.password}
@@ -144,7 +157,7 @@ function FirebaseRegisterTab(props) {
           render={({ field }) => (
             <TextField
               {...field}
-              className="mb-16"
+              className={`${classes.auth_inputs} mb-16`}
               type="password"
               label="Confirm Password"
               error={!!errors.passwordConfirm}
