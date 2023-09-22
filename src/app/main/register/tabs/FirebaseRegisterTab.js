@@ -17,9 +17,7 @@ import * as yup from 'yup';
 
 const useStyles = makeStyles(theme => ({
   auth_input: {
-  width: '100%',
-    
-
+    width: '100%'
   }
 }));
 
