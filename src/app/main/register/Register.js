@@ -101,11 +101,9 @@ function Register() {
                 to the <br /> Cargo Fleet!
               </Typography>
             </motion.div>
-
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
               <Typography variant="subtitle1" color="inherit" className="mt-32">
-                A FMS designed to help businesses and organizations manage and
-                monitor their vehicle fleets efficiently. 
+                A FMS designed to help businesses and organizations manage and monitor their vehicle fleets efficiently.
               </Typography>
             </motion.div>
           </div>
